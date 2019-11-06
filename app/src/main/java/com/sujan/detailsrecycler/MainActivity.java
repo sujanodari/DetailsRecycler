@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     RadioGroup rg;
     RecyclerView recyclerView;
     String gen;
+    int img;
     List<UserDetail> userList = new ArrayList<>();
 
 
@@ -50,12 +51,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         btnSave.setOnClickListener(this);
 
-        int image1=R.drawable.one;
-        int image2=R.drawable.two;
-        int image3=R.drawable.three;
-       // Image images[]={image1,image2};
 
-        String images []={"Select Image",String.valueOf(image1),String.valueOf(image2),String.valueOf(image3)};
+
+        String images []={"Select Image","Birat","Model","Old","Four","Five","Six"};
         ArrayAdapter adapter= new ArrayAdapter<>(
                 this,android.R.layout.simple_list_item_1,images
 
@@ -85,7 +83,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if(rbOthers.isChecked()){
             gen="Others";
         }
-        int img=Integer.parseInt(spinner.getSelectedItem().toString());
+        String image=spinner.getSelectedItem().toString();
+        if(image=="Birat"){
+            img=  R.drawable.three ;
+        }
+        if(image=="Model"){
+             img=  R.drawable.two ;
+        }
+        if(image=="Old"){
+            img=  R.drawable.one ;
+        }
+        if(image=="Four"){
+            img=  R.drawable.four ;
+        }
+        if(image=="Five"){
+            img=  R.drawable.five ;
+        }
+        if(image=="Six"){
+            img=  R.drawable.six ;
+        }
+
         int age=Integer.parseInt(etAge.getText().toString());
 
         userList.add(new UserDetail(etName.getText().toString(), age, gen, img));
